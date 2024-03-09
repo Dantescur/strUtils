@@ -6,6 +6,7 @@
  *
  * @example
  * // Importing the entire module
+ * ```ts
  * import strUtils from 'strutils';
  * const trimmed = strUtils.trimWhitespace('  example  ');
  * const camelCased = strUtils.camelCase('hello world');
@@ -13,6 +14,7 @@
  * // Importing a single function
  * import { repeat } from 'strutils';
  * const repeated = repeat('Hello', 3);
+ * ```
  */
 const stringUtils = {
   /**
