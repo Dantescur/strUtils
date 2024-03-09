@@ -172,4 +172,12 @@ describe("String Utility Functions", () => {
       expect(stringUtils.isPalindrome("hello")).toBe(false);
     });
   });
+
+  describe("toTitleCase", () => {
+    test("should convert string to Title Case", () => {
+      expect(stringUtils.toTitleCase("hello from title case")).toBe(
+        "Hello From Title Case",
+      );
+    });
+  });
 });

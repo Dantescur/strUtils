@@ -215,10 +215,21 @@ export function repeat(str: string, count: number): string {
 }
 
 /**
+ * Convert string to Title Case  (capitalize the first letter of each word)
+ * @param {string} str - The input string to convert
+ * @returns {string} The Title Cased string
+ */
+export function toTitleCase(str: string): string {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+/**
  * This module provides utility functions for string manipulation.
  * @module strUtils
  *
- * This module contains various functions for string manipulation.
  *
  * @example
  * ```ts
@@ -251,6 +262,7 @@ const strUtils = {
   substring,
   pad,
   removeWhitespace,
+  toTitleCase,
 };
 
 export default strUtils;
