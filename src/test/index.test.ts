@@ -73,7 +73,6 @@ describe("String Utility Functions", () => {
     });
   });
 
-  // Add tests for other functions similarly
   describe("startsWith", () => {
     test("should return true if the string starts with the prefix", () => {
       expect(stringUtils.startsWith("hello world", "hello")).toBe(true);
