@@ -1,5 +1,5 @@
 {
-  "name": "@dancuba/strUtils",
+  "name": "@areitosa/strUtils",
   "version": "1.1.2",
   "description": "",
   "main": "src/index.ts",
@@ -8,8 +8,11 @@
     "doc": "npx typedoc src/index.ts",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "string",
+    "utils"
+  ],
+  "author": "Daniel",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.12",
