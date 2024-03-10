@@ -227,6 +227,61 @@ export function toTitleCase(str: string): string {
 }
 
 /**
+ * Represents statistics about words in a given text.
+ * @interface
+ */
+interface WordStatistics {
+  /**
+   * The total count of words in the text.
+   */
+  totalCount: number;
+  /**
+   * The count of occurrences of a specific word in the text.
+   * @type {number}
+   */
+  specificWordCount: number;
+  /**
+   * The count of words that end with a specific suffix in the text.
+   * @type {number}
+   */
+  wordsEndWithSuffixCount: number;
+}
+
+/**
+ * Analyzes a text and computes word statistics.
+ * @param {string} str - The input text to analyze.
+ * @param {string} [specificWord] - A specific word to count occurrences of (optional).
+ * @param {string} [suffix] - A suffix to count words ending with (optional).
+ * @returns {WordStatistics} - The computed word statistics.
+ */
+export function analyzeText(
+  str: string,
+  specificWord?: string,
+  suffix?: string,
+): WordStatistics {
+  const words = str.split(/\s+/);
+  const statistics: WordStatistics = {
+    totalCount: words.length,
+    specificWordCount: 0,
+    wordsEndWithSuffixCount: 0,
+  };
+
+  if (specificWord) {
+    statistics.specificWordCount = words.filter(
+      (word) => word === specificWord,
+    ).length;
+  }
+
+  if (suffix) {
+    statistics.wordsEndWithSuffixCount = words.filter((word) =>
+      word.endsWith(suffix),
+    ).length;
+  }
+
+  return statistics;
+}
+
+/**
  * This module provides utility functions for string manipulation.
  * @module strUtils
  *
@@ -244,29 +299,7 @@ export function toTitleCase(str: string): string {
  * ```
  */
 
-export interface StringManipulation {
-  trimWhitespace(str: string): string;
-  capitalize(str: string): string;
-  camelCase(str: string): string;
-  snakeCase(str: string): string;
-  truncate(str: string, maxLength: number, suffix?: string): string;
-  startsWith(str: string, prefix: string): boolean;
-  endsWith(str: string, suffix: string): boolean;
-  countOccurrences(str: string, substring: string): number;
-  replaceAll(str: string, search: string, replacement: string): string;
-  format(str: string, ...args: any[]): string;
-  reverse(str: string): string;
-  substring(str: string, startIndex: number, endIndex: number): string;
-  pad(str: string, length: number, char?: string): string;
-  removeWhitespace(str: string): string;
-  isNumeric(str: string): boolean;
-  isAlpha(str: string): boolean;
-  isPalindrome(str: string): boolean;
-  repeat(str: string, count: number): string;
-  toTitleCase(str: string): string;
-}
-
-const strUtils: StringManipulation = {
+const strUtils = {
   trimWhitespace,
   capitalize,
   camelCase,
@@ -286,6 +319,7 @@ const strUtils: StringManipulation = {
   isPalindrome,
   repeat,
   toTitleCase,
+  analyzeText,
 };
 
 export default strUtils;
