@@ -243,15 +243,33 @@ export function toTitleCase(str: string): string {
  * const repeated = repeat('Hello', 3);
  * ```
  */
-const strUtils = {
-  repeat,
-  reverse,
+
+export interface StringManipulation {
+  trimWhitespace(str: string): string;
+  capitalize(str: string): string;
+  camelCase(str: string): string;
+  snakeCase(str: string): string;
+  truncate(str: string, maxLength: number, suffix?: string): string;
+  startsWith(str: string, prefix: string): boolean;
+  endsWith(str: string, suffix: string): boolean;
+  countOccurrences(str: string, substring: string): number;
+  replaceAll(str: string, search: string, replacement: string): string;
+  format(str: string, ...args: any[]): string;
+  reverse(str: string): string;
+  substring(str: string, startIndex: number, endIndex: number): string;
+  pad(str: string, length: number, char?: string): string;
+  removeWhitespace(str: string): string;
+  isNumeric(str: string): boolean;
+  isAlpha(str: string): boolean;
+  isPalindrome(str: string): boolean;
+  repeat(str: string, count: number): string;
+  toTitleCase(str: string): string;
+}
+
+const strUtils: StringManipulation = {
   trimWhitespace,
   capitalize,
   camelCase,
-  isAlpha,
-  isPalindrome,
-  isNumeric,
   snakeCase,
   truncate,
   startsWith,
@@ -259,9 +277,14 @@ const strUtils = {
   countOccurrences,
   replaceAll,
   format,
+  reverse,
   substring,
   pad,
   removeWhitespace,
+  isNumeric,
+  isAlpha,
+  isPalindrome,
+  repeat,
   toTitleCase,
 };
 
